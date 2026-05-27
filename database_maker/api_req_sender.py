@@ -31,7 +31,7 @@ def get_info(id : int) -> bool:
 	f = open("response_data.csv", "w")
 
 	# Asking for historical water level and writing it in response_data.csv
-	response = requests.get(f'https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date=20260201&end_date=20260430&station={id}&product=hourly_height&datum=MLW&time_zone=gmt&units=metric&format=csv')
+	response = requests.get(f'https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date=20251101&end_date=20260430&station={id}&product=hourly_height&datum=MLW&time_zone=gmt&units=metric&format=csv')
 	if (response.status_code == 200):
 		f.write(response.text)
 	else:
