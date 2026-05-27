@@ -1,5 +1,6 @@
 import pandas as pd
 from datetime import datetime
+from sklearn.preprocessing import MinMaxScaler
 
 df = pd.read_csv("database_raw.csv")
 
