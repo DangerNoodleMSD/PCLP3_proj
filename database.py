@@ -1,6 +1,6 @@
-import api_req_sender
-import data_parser
-from proj_classes import attributes_t
+import database_maker.api_req_sender as api_req_sender
+import database_maker.data_parser as data_parser
+from database_maker.proj_classes import attributes_t
 import pandas as pd
 import json
 

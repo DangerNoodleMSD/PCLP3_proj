@@ -1,5 +1,5 @@
 import pandas as pd
-from proj_classes import attributes_t
+from database_maker.proj_classes import attributes_t
 
 def parse_data(attributes : attributes_t) -> pd.DataFrame:
 	df = pd.read_csv("response_data.csv")
