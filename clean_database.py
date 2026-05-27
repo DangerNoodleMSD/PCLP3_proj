@@ -14,6 +14,7 @@ df["Date Time"] = datetime.strptime(df["Date Time"][0], "%Y-%m-%d %H:%M").timest
 # Drop redundant column
 df.drop(df.columns[0], axis=1, inplace=True)
 
+# Choosing to focus on one specific station
 df = df[df["name"] == "Crescent City"]
 
 water_lvl_max = df[' Water Level'].max()
