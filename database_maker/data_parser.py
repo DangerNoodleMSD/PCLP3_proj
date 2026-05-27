@@ -12,9 +12,14 @@ def parse_data(attributes : attributes_t) -> pd.DataFrame:
 
 	df["lat"] = attributes.lat
 	df["long"] = attributes.long
-	df.drop(' O or I (for verified)', axis=1, inplace=True)
-	df.drop(' F', axis=1, inplace=True)
-	df.drop(' R', axis=1, inplace=True)
-	df.drop(' L', axis=1, inplace=True)
-	df.drop(' Quality ', axis=1, inplace=True)
+	#df.drop(' O or I (for verified)', axis=1, inplace=True)
+	#df.drop(' F', axis=1, inplace=True)
+	#df.drop(' R', axis=1, inplace=True)
+	#df.drop(' L', axis=1, inplace=True)
+	#df.drop(' Quality ', axis=1, inplace=True)
+	df.drop(' I', axis=1, inplace=True)
+	df.drop(' L ', axis=1, inplace=True)
+	df.drop('great_lake', axis=1, inplace=True)
+	df["Pacific"] = (df["long"] < -105).astype(int)
+	df["Atlantic"] = (df["long"] > -105).astype(int)
 	return df
