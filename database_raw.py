@@ -57,7 +57,7 @@ for id in ids:
 		print(f"[WARNING] Ignoring station {id}", end="\n\n")
 
 final_df = pd.concat(df_list)
-pd.DataFrame.to_csv(final_df, "database.csv")
+pd.DataFrame.to_csv(final_df, "database_raw.csv")
 
 if os.path.exists("./response_data.csv"):
 	os.remove("./response_data.csv")
