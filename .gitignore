@@ -3,3 +3,4 @@ response_metadata.json
 response_data.csv
 *.pdf
 __pycache__
+database.csv
