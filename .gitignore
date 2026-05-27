@@ -4,3 +4,4 @@
 *.pdf
 __pycache__
 *database.csv
+*database_raw.csv

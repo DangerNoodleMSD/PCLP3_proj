@@ -1,4 +1,4 @@
 .PHONY: api_req
 
-database:
-	python3 database.py
+database_raw:
+	python3 database_raw.py

@@ -1,0 +1,136 @@
+{
+  "count": 1,
+  "units": null,
+  "stations": [
+    {
+      "tidal": false,
+      "greatlakes": true,
+      "shefcode": "OCTN6",
+      "details": {
+        "id": "9052076",
+        "established": "1967-01-01 00:00:00",
+        "removed": "",
+        "noaachart": "14806",
+        "timemeridian": -75,
+        "timezone": -5.0,
+        "origyear": "2000-08-02 00:00:00",
+        "self": "https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations/9052076/details.json"
+      },
+      "sensors": {
+        "units": "meters",
+        "sensors": [
+          {
+            "status": 1,
+            "refdatum": "MSL",
+            "sensorID": "site",
+            "name": "site",
+            "elevation": null,
+            "message": "",
+            "dcp": 0
+          },
+          {
+            "status": 1,
+            "refdatum": "",
+            "sensorID": "V1",
+            "name": "SAE WL",
+            "elevation": null,
+            "message": "",
+            "dcp": 1
+          }
+        ],
+        "self": "https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations/9052076/sensors.json"
+      },
+      "floodlevels": {
+        "nos_minor": null,
+        "nos_moderate": null,
+        "nos_major": null,
+        "nws_minor": null,
+        "nws_moderate": null,
+        "nws_major": null,
+        "action": 75.824,
+        "self": "https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations/9052076/floodlevels.json"
+      },
+      "datums": {
+        "accepted": null,
+        "superseded": null,
+        "epoch": null,
+        "units": "meters",
+        "OrthometricDatum": null,
+        "datums": [
+          {
+            "name": "GL_LWD",
+            "description": "Great Lakes Lower Water Datum",
+            "value": 74.2
+          }
+        ],
+        "LAT": null,
+        "LATdate": null,
+        "LATtime": null,
+        "HAT": null,
+        "HATdate": null,
+        "HATtime": null,
+        "min": 74.139,
+        "mindate": "20071128",
+        "mintime": "12:12:00",
+        "max": 75.987,
+        "maxdate": "20190604",
+        "maxtime": "10:18:00",
+        "disclaimers": {
+          "disclaimers": [],
+          "self": null
+        },
+        "DatumAnalysisPeriod": [],
+        "NGSLink": null,
+        "ctrlStation": null,
+        "self": "https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations/9052076/datums.json"
+      },
+      "supersededdatums": {
+        "self": "https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations/9052076/supersededdatums.json"
+      },
+      "harmonicConstituents": {
+        "self": "https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations/9052076/harcon.json"
+      },
+      "benchmarks": {
+        "self": "https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations/9052076/benchmarks.json"
+      },
+      "tidePredOffsets": {
+        "self": "https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations/9052076/tidepredoffsets.json"
+      },
+      "ofsMapOffsets": {
+        "self": "https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations/9052076/ofsmapoffsets.json"
+      },
+      "state": "NY",
+      "timezone": "EST",
+      "timezonecorr": -5,
+      "observedst": true,
+      "stormsurge": false,
+      "nearby": {
+        "self": "https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations/9052076/nearby.json"
+      },
+      "forecast": true,
+      "outlook": false,
+      "HTFhistorical": false,
+      "HTFmonthly": false,
+      "nonNavigational": false,
+      "id": "9052076",
+      "name": "Olcott",
+      "lat": 43.33839,
+      "lng": -78.72733,
+      "affiliations": "NWLON",
+      "portscode": "gr",
+      "products": {
+        "self": "https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations/9052076/products.json"
+      },
+      "disclaimers": {
+        "self": "https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations/9052076/disclaimers.json"
+      },
+      "notices": {
+        "self": "https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations/9052076/notices.json"
+      },
+      "self": "https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations/9052076.json",
+      "expand": "details,sensors,floodlevels,datums,harcon,tidepredoffsets,ofsmapoffsets,products,disclaimers,notices",
+      "tideType": "Great Lakes"
+    }
+  ],
+  "self": null
+}
