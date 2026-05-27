@@ -33,14 +33,22 @@ for id in ids:
 			metadata = json.loads(read)
 			name = metadata["stations"][0]["name"]
 			great_lake = metadata["stations"][0]["greatlakes"]
+
 			flood_level["minor"] = metadata["stations"][0]["floodlevels"]["nos_minor"]
+			if flood_level["minor"] == None:
+				metadata["stations"][0]["floodlevels"]["nws_minor"]
 			flood_level["moderate"] = metadata["stations"][0]["floodlevels"]["nos_moderate"]
+			if flood_level["moderate"] == None:
+				metadata["stations"][0]["floodlevels"]["nws_moderate"]
 			flood_level["major"] = metadata["stations"][0]["floodlevels"]["nos_major"]
+			if flood_level["major"] == None:
+				metadata["stations"][0]["floodlevels"]["nws_major"]
+
 			lat = metadata["stations"][0]["lat"]
 			long = metadata["stations"][0]["lng"]
 		
 		attributes = attributes_t(name, great_lake, flood_level, lat, long)
-			
+
 		print(f"{name}: \t{lat},\t{long}")
 		
 		df_list.append(data_parser.parse_data(attributes))
