@@ -1,6 +1,6 @@
-response.txt
-response_metadata.json
-response_data.csv
+*response.txt
+*response_metadata.json
+*response_data.csv
 *.pdf
 __pycache__
-database.csv
+*database.csv
