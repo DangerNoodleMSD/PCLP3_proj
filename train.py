@@ -76,7 +76,7 @@ y_test = test[' Water Level']
 
 print("")
 print(f"Training len {len(train)}")
-print(f"Test len {len(train)}")
+print(f"Test len {len(test)}")
 
 def make_graph(type : str, y_test, pred):
 	plt.clf()
@@ -98,10 +98,10 @@ def train_model(X_train, y_train, X_test, y_test, window_size, step_size):
 	for i in range(0, len(X_test), step_size):
 		train_id_end = start_id + i
 		train_id_begin = max(0, train_id_end - window_size)
-		X_window = X.iloc[0:train_id_end]
-		y_window = y.iloc[0:train_id_end]
+		X_window = X.iloc[train_id_begin:train_id_end]
+		y_window = y.iloc[train_id_begin:train_id_end]
 
-		model = RandomForestRegressor()
+		model = RandomForestRegressor(n_estimators=200, random_state=42, n_jobs=-1)
 		model.fit(X_window, y_window)
 
 		test_id_begin = train_id_end
@@ -123,7 +123,7 @@ def train_model(X_train, y_train, X_test, y_test, window_size, step_size):
 	return predictions, ground_truth
 
 
-pred, ground_truth = train_model(X_train, y_train, X_test, y_test, 200, 1)
+pred, ground_truth = train_model(X_train, y_train, X_test, y_test, 720, 1)
 
 error_calc("RandomForestRegression", ground_truth, pred)
 make_graph("RandomForestRegression", y_test, pred)
