@@ -15,7 +15,6 @@ patch_sklearn()
 df = pd.read_csv(
     "database_raw.csv",
     usecols=["Date Time", " Water Level", "name"],
-    parse_dates=["Date Time"],
     index_col="Date Time"
 )
 
@@ -82,6 +81,7 @@ print(df.head())
 #TRASATURI: sin + cos pentru ora (pentru a capta periodicitatea zilnica)
 def add_SinCos_terms(df, perioada, n_terms):
     for i in range(1, n_terms + 1):
+        
         df[f'sin_{perioada}_{i}'] = np.sin(2 * np.pi * i * df['hour'] / perioada)
         df[f'cos_{perioada}_{i}'] = np.cos(2 * np.pi * i * df['hour'] / perioada)
     return df
@@ -169,8 +169,8 @@ def random_forest_antrenare(X_train, y_train, X_test, y_test,
 
     for i in range(0, len(X_test), step_size):
         # Define training window (expanding window)
-        train_start = 0#max(0, start_idx + i - window_size)
         train_end = start_idx + i
+        train_start = 0#max(0, train_end - window_size)
 
         # Get training data for this window
         X_window = X_full.iloc[train_start:train_end]
@@ -203,7 +203,7 @@ def random_forest_antrenare(X_train, y_train, X_test, y_test,
 preds_rf, actuals_rf = random_forest_antrenare(
       X_train, y_train, X_test, y_test,
       window_size=720,  # fereastra initiala de antrenament (200 ore)
-      step_size=1       # Prediction la fiecare pas (1 ora inainte)
+      step_size=24       # Prediction la fiecare pas (1 ora inainte)
   )
 
 mae, rmse, R2, mase = get_metrics(y_test, preds_rf, y_train)
