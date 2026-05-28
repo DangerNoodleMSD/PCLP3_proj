@@ -19,6 +19,7 @@ def error_calc(type:str, y_test, y_pred):
 	print(f"{type} (MAE):", mae)
 	r2 = r2_score(y_test, y_pred)
 	print(f"{type} (R2):", r2)
+	plt.figure(figsize=(7, 7))
 	plt.scatter(y_test, y_pred)
 	plt.savefig(f'{type}.png')
 	plt.clf()
@@ -100,7 +101,7 @@ def train_model(X_train, y_train, X_test, y_test, window_size, step_size):
 		X_window = X.iloc[0:train_id_end]
 		y_window = y.iloc[0:train_id_end]
 
-		model = LinearRegression()
+		model = RandomForestRegressor()
 		model.fit(X_window, y_window)
 
 		test_id_begin = train_id_end
@@ -124,50 +125,8 @@ def train_model(X_train, y_train, X_test, y_test, window_size, step_size):
 
 pred, ground_truth = train_model(X_train, y_train, X_test, y_test, 200, 1)
 
-error_calc("LinearRegression", ground_truth, pred)
-make_graph("LinearRegression", y_test, pred)
-
-def train_model(X_train, y_train, X_test, y_test, window_size, step_size):
-	predictions = []
-	ground_truth = []
-
-	X = pd.concat([X_train, X_test])
-	y = pd.concat([y_train, y_test])
-
-	start_id = len(X_train)
-
-	for i in range(0, len(X_test), step_size):
-		train_id_end = start_id + i
-		train_id_begin = max(0, train_id_end - window_size)
-		X_window = X.iloc[0:train_id_end]
-		y_window = y.iloc[0:train_id_end]
-
-		model = LinearRegression()
-		model.fit(X_window, y_window)
-
-		test_id_begin = train_id_end
-		test_id_end = min(test_id_begin + step_size, len(X))
-		X_pred = X[test_id_begin:test_id_end]
-		y_ground_truth = y[test_id_begin:test_id_end]
-
-		if (len(X_pred) == 0):
-			break
-
-		pred = model.predict(X_pred)
-
-		predictions.extend(pred)
-		ground_truth.extend(y_ground_truth)
-
-		if i % 20 == 0:
-			print(f"Iteration {i}")
-	
-	return predictions, ground_truth
-
-
-pred, ground_truth = train_model(X_train, y_train, X_test, y_test, 200, 1)
-
-error_calc("LinearRegression", ground_truth, pred)
-make_graph("LinearRegression", y_test, pred)
+error_calc("RandomForestRegression", ground_truth, pred)
+make_graph("RandomForestRegression", y_test, pred)
 
 
 # split_idx = int(len(df) * 0.8)
